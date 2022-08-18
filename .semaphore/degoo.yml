@@ -1,0 +1,21 @@
+version: v1.0
+name: mpyexample
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+execution_time_limit:
+  hours: 3
+blocks:
+  - name: met
+    task:
+      prologue:
+        commands:
+          - sem-version python 2.7
+          - export PATH=$HOME/.local/bin:$PATH
+          - checkout
+      jobs:
+        - name: Run 
+          commands:
+            - sem-version python 2.7
+            - python build.py
